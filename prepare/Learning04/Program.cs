@@ -2,8 +2,11 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Mai(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        Assignment a1 = new Assignment("Abel Castro", "Math");
+        Console.WriteLine(a1.GetSummary());
+
     }
+
 }
