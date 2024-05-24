@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-// Abstract Base Class for Goals
 abstract class Goal
 {
     protected string _shortName;
