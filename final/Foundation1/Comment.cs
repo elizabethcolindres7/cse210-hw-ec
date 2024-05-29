@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// Define the Comment class
+
 public class Comment
 {
     public string CommenterName { get; set; }
