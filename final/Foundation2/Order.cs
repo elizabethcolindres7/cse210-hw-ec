@@ -17,6 +17,11 @@ public class Order
         products.Add(product);
     }
 
+    public double GetShippingCost()
+    {
+        return customer.LivesInUSA() ? 5 : 35;
+    }
+
     public double GetTotalCost()
     {
         double total = 0;
@@ -24,22 +29,22 @@ public class Order
         {
             total += product.GetTotalCost();
         }
-        total += customer.LivesInUSA() ? 5 : 35;
+        total += GetShippingCost();
         return total;
     }
 
     public string GetPackingLabel()
     {
-        string packingLabel = "";
+        string packingLabel = "Packing Label:\n";
         foreach (Product product in products)
         {
-            packingLabel += $"Product: {product.Name}, ID: {product.ProductId}\n";
+            packingLabel += $"Product: {product.Name}, ID: {product.ProductId}, Price: ${product.Price:0.00}, Quantity: {product.Quantity}, Total Cost: ${product.GetTotalCost():0.00}\n";
         }
         return packingLabel;
     }
 
     public string GetShippingLabel()
     {
-        return $"{customer.Name}\n{customer.Address}";
+        return $"Shipping Label:\n{customer.Name}\n{customer.Address}";
     }
 }
