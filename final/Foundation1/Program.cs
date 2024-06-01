@@ -2,11 +2,12 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        
+        // Create some videos
         Video video1 = new Video("How to Cook Pasta", "Chef John", 600);
         Video video2 = new Video("Yoga for Beginners", "Yoga with Adriene", 1800);
         Video video3 = new Video("Learn C# in 10 Minutes", "CodeAcademy", 600);
 
+        // Add comments to the videos
         video1.AddComment(new Comment("Alice", "Great video!"));
         video1.AddComment(new Comment("Bob", "Very informative, thanks!"));
         video1.AddComment(new Comment("Charlie", "I love pasta!"));
@@ -19,9 +20,10 @@ public class Program
         video3.AddComment(new Comment("Heidi", "Excellent tutorial."));
         video3.AddComment(new Comment("Ivan", "Quick and easy to follow."));
 
-        
+        // Store videos in a list
         List<Video> videos = new List<Video> { video1, video2, video3 };
 
+        // Display information about each video
         foreach (Video video in videos)
         {
             Console.WriteLine($"Title: {video.Title}");
