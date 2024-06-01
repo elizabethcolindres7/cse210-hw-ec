@@ -1,31 +1,31 @@
 public class Order
 {
-    private List<Product> products;
-    private Customer customer;
+    private List<Product> _products;
+    private Customer _customer;
 
     public Order(Customer customer)
     {
-        this.customer = customer;
-        this.products = new List<Product>();
+        _customer = customer;
+        _products = new List<Product>();
     }
 
-    public Customer Customer { get => customer; }
-    public List<Product> Products { get => products; }
+    public Customer Customer { get => _customer; }
+    public List<Product> Products { get => _products; }
 
     public void AddProduct(Product product)
     {
-        products.Add(product);
+        _products.Add(product);
     }
 
     public double GetShippingCost()
     {
-        return customer.LivesInUSA() ? 5 : 35;
+        return _customer.LivesInUSA() ? 5 : 35;
     }
 
     public double GetTotalCost()
     {
         double total = 0;
-        foreach (Product product in products)
+        foreach (Product product in _products)
         {
             total += product.GetTotalCost();
         }
@@ -36,7 +36,7 @@ public class Order
     public string GetPackingLabel()
     {
         string packingLabel = "Packing Label:\n";
-        foreach (Product product in products)
+        foreach (Product product in _products)
         {
             packingLabel += $"Product: {product.Name}, ID: {product.ProductId}, Price: ${product.Price:0.00}, Quantity: {product.Quantity}, Total Cost: ${product.GetTotalCost():0.00}\n";
         }
@@ -45,6 +45,6 @@ public class Order
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n{customer.Name}\n{customer.Address}";
+        return $"Shipping Label:\n{_customer.Name}\n{_customer.Address}";
     }
 }
